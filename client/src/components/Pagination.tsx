@@ -1,5 +1,5 @@
-import { type ButtonHTMLAttributes, type FC } from 'react'
-import { FaAngleLeft, FaAngleRight, FaArrowRight } from 'react-icons/fa'
+import { type FC } from 'react'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 interface PaginationButtonProps {
   children: JSX.Element | JSX.Element[] | string
