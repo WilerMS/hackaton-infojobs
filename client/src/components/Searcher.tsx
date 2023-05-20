@@ -2,7 +2,7 @@ import { FaMapMarkerAlt, FaSearch } from 'react-icons/fa'
 
 const Searcher = () => {
   return (
-    <div className='w-full h-16 rounded-lg shadow-sm border flex overflow-hidden'>
+    <div className='w-full h-16 rounded-lg border flex overflow-hidden hover:shadow-sm transition'>
       <div className="w-full h-full px-5 flex items-center gap-3">
         <FaSearch className='text-lg text-gray-400' />
         <input

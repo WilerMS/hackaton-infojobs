@@ -7,3 +7,28 @@ export const InfoJobsIcon = () => {
     </svg>
   )
 }
+
+export const ArrowDownIcon = () => (
+  <svg
+    className="tremor-AccordionHeader-arrowIcon transition-all text-gray-400 -mr-1 h-6 w-6"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24" height="24"
+  >
+    <path fill="none" d="M0 0h24v24H0z"></path>
+    <path fill="currentColor" d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"></path>
+  </svg>
+)
+
+export const ArrowUpIcon = () => (
+  <svg
+    className="tremor-AccordionHeader-arrowIcon transition-all -rotate-180 text-gray-400 -mr-1 h-6 w-6"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+  >
+    <path fill="none" d="M0 0h24v24H0z"></path>
+    <path fill="currentColor" d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"></path>
+  </svg>
+)
