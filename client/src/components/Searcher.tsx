@@ -15,7 +15,7 @@ const Searcher = () => {
         <FaMapMarkerAlt className='text-lg text-gray-400' />
         <input
           type="text"
-          className="border-0 outline-none w-full h-full placeholder:text-sm"
+          className="border-0 outline-none w-full h-full placeholder:text-sm focus:border-0 focus:outline-0"
           placeholder="Country or location"
         />
         <div className='w-[150px] p-2 h-full'>

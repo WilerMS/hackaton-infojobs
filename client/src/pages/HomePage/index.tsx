@@ -8,12 +8,12 @@ const HomePage = () => {
   return (
     <main className='w-full sticky -top-[250px] h-[calc(100%+250px)]'>
       <Banner />
-      <section className='contained py-5 w-full h-[calc(100%-390px)] flex gap-4 m-auto'>
+      <section className='contained py-5 w-full h-[calc(100%-390px)] flex flex-col md:flex-row gap-4 m-auto'>
         <Filters />
-        <div className='h-full w-[calc(100%-320px-1rem)]'>
+        <div className='h-full w-full md:w-[calc(100%-320px-1rem)]'>
           <Searcher />
           <div className='h-12 pb-1 pl-1 flex items-end'>250 Jobs results</div>
-          <div className='flex flex-col gap-3 h-[calc(100%-7rem-80px)]'>
+          <div className='flex flex-col gap-3 h-[calc(100%-7rem-80px)] md:h-[calc(100%-7rem-80px)]'>
             <JobCard />
             <JobCard />
             <JobCard />

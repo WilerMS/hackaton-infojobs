@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "eslint": "eslint",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "host": "vite --host"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",

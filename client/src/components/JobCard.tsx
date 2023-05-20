@@ -3,7 +3,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa'
 
 export const JobCard = () => {
   return (
-    <div className='relative border w-full bg-white rounded-lg p-3 h-[25%] overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.001] transition cursor-pointer'>
+    <div className='relative border w-full bg-white rounded-lg p-3 h-[25%] overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer'>
       <div className="flex justify-between items-center mb-3">
         <div className="w-[50px]">
           <img src={twitterIcon} alt="Logo of twitter" />

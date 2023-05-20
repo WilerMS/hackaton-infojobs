@@ -2,7 +2,7 @@ import { Accordion } from './Accordion'
 
 const Filters = () => {
   return (
-    <aside className='w-[320px] h-full'>
+    <aside className='hidden md:block w-full md:w-[320px] h-full'>
       <Accordion
         title='Filters'
         className=''
