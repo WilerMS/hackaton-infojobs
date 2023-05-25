@@ -4,6 +4,9 @@
 
 @layer components {
   .contained {
-    @apply max-w-[1400px] px-5;
+    @apply max-w-[1200px] px-5;
+  }
+  .outline-disabled {
+    @apply border-transparent focus:border-transparent focus:ring-0
   }
 }
