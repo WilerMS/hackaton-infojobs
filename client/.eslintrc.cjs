@@ -27,6 +27,7 @@ module.exports = {
     'no-useless-return': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
     '@typescript-eslint/promise-function-async': 'off',
-    '@typescript-eslint/return-await': 'off'
+    '@typescript-eslint/return-await': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off'
   }
 }
