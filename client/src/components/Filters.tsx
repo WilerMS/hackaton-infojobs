@@ -1,8 +1,33 @@
+import { type FC } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { Accordion } from './Accordion'
 import { RangeSlider } from './RangeSlider'
 
-const Filters = () => {
+interface Props {
+  filters: Filter
+  onChangeFilters: (filters: any) => void
+}
+
+const Filters: FC<Props> = ({
+  filters,
+  onChangeFilters
+}) => {
+  const handleSetProperty = (key: string, value: string | number) => {
+    onChangeFilters({
+      [key]: value === '' ? undefined : value
+    })
+  }
+
+  const handleSetArrProperty = (key: keyof Filter, value: string | number, toggle: boolean) => {
+    const filterValue = structuredClone(filters[key] ?? [])
+    const newValue = !toggle
+      ? filterValue.filter((i: string) => i !== value)
+      : [...filterValue, value]
+    onChangeFilters({
+      [key]: newValue
+    })
+  }
+
   return (
     <aside className='w-full md:w-[320px] h-full'>
       <Accordion
@@ -15,11 +40,10 @@ const Filters = () => {
           <div className="w-full h-full px-3 flex items-center rounded-lg border">
             <FaMapMarkerAlt className='text-md text-gray-400' />
             <input
-              // value={text}
               type="text"
               className="w-full h-full placeholder:text-sm outline-disabled"
               placeholder="Vizcaya"
-              // onChange={handleChange}
+              onChange={(e) => handleSetProperty('province', e.currentTarget.value)}
             />
           </div>
         </div>
@@ -29,11 +53,10 @@ const Filters = () => {
           <div className="w-full h-full px-3 flex items-center rounded-lg border">
             <FaMapMarkerAlt className='text-md text-gray-400' />
             <input
-              // value={text}
               type="text"
               className="w-full h-full placeholder:text-sm outline-disabled"
               placeholder="Bilbao"
-              // onChange={handleChange}
+              onChange={(e) => handleSetProperty('city', e.currentTarget.value)}
             />
           </div>
         </div>
@@ -43,22 +66,34 @@ const Filters = () => {
 
           <div className='mt-1'>
             <label className="flex items-center font-light hover:font-normal transition">
-              <input type="checkbox" className="form-checkbox text-green-500 rounded-md " />
+              <input
+                type="checkbox"
+                onChange={(e) => handleSetArrProperty('workDay', 'completa', e.currentTarget.checked)}
+                className="form-checkbox text-green-500 rounded-md"
+              />
               <span className="ml-2">Full-time</span>
             </label>
           </div>
 
           <div className='mt-1'>
             <label className="flex items-center font-light hover:font-normal transition">
-              <input type="checkbox" className="form-checkbox text-green-500 rounded-md " />
+              <input
+                type="checkbox"
+                onChange={(e) => handleSetArrProperty('workDay', 'parcial-indiferente', e.currentTarget.checked)}
+                className="form-checkbox text-green-500 rounded-md "
+              />
               <span className="ml-2">Partial-time</span>
             </label>
           </div>
 
           <div className='mt-1'>
             <label className="flex items-center font-light hover:font-normal transition">
-              <input type="checkbox" className="form-checkbox text-green-500 rounded-md " />
-              <span className="ml-2">Freelance</span>
+              <input
+                type="checkbox"
+                onChange={(e) => handleSetArrProperty('workDay', 'intensiva-indiferente', e.currentTarget.checked)}
+                className="form-checkbox text-green-500 rounded-md "
+              />
+              <span className="ml-2">Intensive</span>
             </label>
           </div>
         </div>
@@ -68,7 +103,10 @@ const Filters = () => {
 
           <div className='mt-1 w-full flex justify-between'>
             <label className="flex items-center font-light hover:font-normal transition">
-              <input type="checkbox" className="form-checkbox text-green-500 rounded-md " />
+              <input
+                type="checkbox"
+                className="form-checkbox text-green-500 rounded-md "
+              />
               <span className="ml-2">Graphic Designer</span>
             </label>
             <span className='font-light text-gray-400 text-sm'>41</span>
@@ -119,7 +157,7 @@ const Filters = () => {
           <h3 className='font-semibold pb-2'>Range Salary</h3>
 
           <div className='mt-1'>
-            <RangeSlider />
+            <RangeSlider onChange={(value) => handleSetProperty('salaryMax', value)}/>
           </div>
         </div>
 
