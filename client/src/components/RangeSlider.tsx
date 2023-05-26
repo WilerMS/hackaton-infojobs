@@ -1,5 +1,6 @@
+import { useDebounce } from '@app/hooks/useDebounce'
 import { currencyConverter } from '@app/utils'
-import { useState, type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 
 interface Props {
   min?: number
@@ -15,12 +16,16 @@ export const RangeSlider: FC<Props> = ({
   onChange = () => { }
 }) => {
   const [_value, setValue] = useState(value)
+  const debouncedValue = useDebounce(_value, 600)
   const currency = currencyConverter('es')
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setValue(Number(e.currentTarget.value))
-    onChange(Number(e.currentTarget.value))
   }
+
+  useEffect(() => {
+    onChange(debouncedValue)
+  }, [debouncedValue])
 
   return (
     <div className="w-full flex flex-col">
