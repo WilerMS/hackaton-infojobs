@@ -1,9 +1,15 @@
 export const getOffers = async (filters: Filter) => {
-  const Url = new URL('https://api.infojobs.net/api/9/offer/')
-  Object.keys(filters).forEach(filterKey => {
+  const Url = new URL('http://localhost:3000/offers/')
+  Object.keys(filters).forEach((filterKey: string) => {
     // @ts-expect-error
-    Url.searchParams.set(filterKey, filters[filterKey])
+    const currentFilter = filters[filterKey]
+    if (typeof currentFilter === 'object') {
+      currentFilter.forEach((item: string | number) => Url.searchParams.append(filterKey, item.toString()))
+    } else {
+      Url.searchParams.set(filterKey, currentFilter)
+    }
   })
+  console.log({ Url, filters })
   return fetch(Url, {
     method: 'GET',
     headers: {
