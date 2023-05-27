@@ -1,4 +1,4 @@
-import twitter from '@images/twitter.png'
+import twitter from '@assets/pic-company-logo.png'
 import { type FC } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
