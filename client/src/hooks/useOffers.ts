@@ -13,7 +13,7 @@ export const useOffers = (filters: Filter) => {
     pageSize: data?.pageSize,
     totalResults: data?.totalResults,
     totalPages: data?.totalPages,
-    isFetching: data?.isFetching,
+    isFetching,
     isError
   }
 }
