@@ -13,9 +13,8 @@ const HomePage = () => {
   const [filters, setFilters] = useState({})
   const [searchText, setSearchText] = useState('')
   const { offers, isFetching, isError } = useOffers({
-    // @ts-expect-error
-    _page: page,
-    _limit: 4,
+    page,
+    maxResults: 4,
     ...filters
   })
 
