@@ -6,6 +6,7 @@
     "paths": {
       "@app/*": ["src/*"],
       "@config/*": ["src/config/*"],
+      "@services/*": ["src/services/*"],
     },
     "resolveJsonModule": true,
     "outDir": "./dist",                                  /* Specify an output folder for all emitted files. */
