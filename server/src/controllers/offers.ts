@@ -1,13 +1,19 @@
 import { analyzeOffer } from '@app/services/openai'
 import { Request, Response } from 'express'
+import infojobs from '@services/infojobs'
+import querystring from 'querystring'
 
 export const getOffers = async (req: Request, res: Response): Promise<void> => {
 
-  console.log('Hola buenos dias')
+  const params = querystring.stringify(req.query as {})
 
-  res.send('data')
+  console.log({ params })
+  const offers = await infojobs.getOffers(params)
+  res.json(offers)
 }
 
 export const getOffer = async (req: Request, res: Response): Promise<void> => {
-  res.send('Oferta ' + req.params.id)
+  const offer = await infojobs.getOffer(req.params.id)
+
+  res.json(offer)
 }

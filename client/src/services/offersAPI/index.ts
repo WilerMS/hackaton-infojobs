@@ -1,5 +1,5 @@
 export const getOffers = async (filters: Filter) => {
-  const Url = new URL('http://localhost:3000/offers/')
+  const Url = new URL('http://localhost:7000/api/offers')
   Object.keys(filters).forEach((filterKey: string) => {
     // @ts-expect-error
     const currentFilter = filters[filterKey]
@@ -9,12 +9,8 @@ export const getOffers = async (filters: Filter) => {
       Url.searchParams.set(filterKey, currentFilter)
     }
   })
-  console.log({ Url, filters })
   return fetch(Url, {
-    method: 'GET',
-    headers: {
-
-    }
+    method: 'GET'
   }).then(res => res.json())
 }
 
